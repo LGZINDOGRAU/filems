@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Manu | Premium</title>
+    <title>Cine Manu | Seu Cinema Pessoal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="intro-overlay">
-        <div class="clapperboard">
-            <div class="clapper-top"></div>
-            <div class="clapper-bottom">CINE MANU</div>
+        <div class="netflix-intro">
+            <span class="netflix-name">EMANUELY</span>
         </div>
-        <p style="margin-top: 20px; letter-spacing: 5px; color: #555;">PREPARANDO O SHOW...</p>
     </div>
 
     <header>
         <h1>CINE MANU</h1>
-        <p style="letter-spacing: 3px;">CURADORIA EXCLUSIVA PARA EMANUELY</p>
+        <p>SUAS PRÓXIMAS MARATONAS ESTÃO AQUI!</p>
     </header>
 
     <div class="container">
@@ -53,23 +51,23 @@
                     <p>O fim de uma era em Hawkins. Prepare os lenços, Manu!</p>
                 </div>
             </div>
-
-        </div>
+            
+            </div>
     </div>
 
     <footer>
-        DESENVOLVIDO COM TECNOLOGIA DE PONTA PARA EMANUELY © 2026
+        <p>CINE MANU - O SEU CINEMA PARTICULAR. DESENVOLVIDO COM <span style="color: var(--netflix-red);">❤</span> POR VOCÊ!</p>
     </footer>
 
     <script>
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro-overlay');
-            // Dá tempo da animação da claquete ser vista
+            // Tempo para o nome aparecer e a tela sumir
             setTimeout(() => {
                 intro.classList.add('fade-out');
-                // Remove do HTML para não atrapalhar o scroll
-                setTimeout(() => intro.style.display = 'none', 800);
-            }, 2500);
+                // Remove o overlay do DOM para não interferir no scroll
+                setTimeout(() => intro.style.display = 'none', 800); 
+            }, 3000); // Ajustei para 3 segundos para o nome ter tempo de aparecer
         });
     </script>
 </body>
