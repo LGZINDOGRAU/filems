@@ -3,64 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Manu 🍿</title>
+    <title>Cine Manu - Recomendações VIP 🍿</title>
     <style>
+        :root {
+            --primary: #e50914; /* Vermelho Netflix */
+            --bg: #0f0f0f;
+            --card-bg: #181818;
+        }
+
         body { 
-            font-family: 'Segoe UI', sans-serif; 
-            background-color: #0a0a0a; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: var(--bg); 
             color: white; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            margin: 0;
+            margin: 0; 
+            padding: 0;
         }
-        h1 { color: #ff4d6d; margin-top: 40px; }
-        .wrapper {
-            width: 100%;
-            max-width: 800px;
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+
+        header { 
+            padding: 40px 20px; 
             text-align: center;
+            background: linear-gradient(to bottom, #1a1a1a, var(--bg));
         }
+
+        h1 { color: var(--primary); font-size: 2.5rem; margin: 0; }
+        .subtitle { color: #aaa; margin-top: 10px; font-size: 1.1rem; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #222;
+        }
+
+        .video-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.2);
+        }
+
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Mantém o vídeo na proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
-            overflow: hidden;
-            border-radius: 10px;
         }
+
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
-        .msg {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
+
+        .info { padding: 15px; }
+        .info h3 { margin: 0 0 8px 0; font-size: 1.2rem; color: #fff; }
+        .info p { font-size: 0.9rem; color: #999; margin: 0; line-height: 1.4; }
+
+        footer { text-align: center; padding: 40px; color: #444; }
     </style>
 </head>
 <body>
 
+<header>
     <h1>Cine Manu 🍿</h1>
-    <p>Uma recomendação especial para a Emanuely!</p>
+    <p class="subtitle">Emanuely, aqui estão os melhores lançamentos para a gente assistir!</p>
+</header>
 
-    <div class="wrapper">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/5EqVDyqhMko?si=JBRk-bV10qqSOe76" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="container">
+    <div class="video-grid">
+
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3UiP4GwWNv0" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Demon Slayer: Castelo Infinito</h3>
+                <p>O final épico está chegando! Os Hashiras contra o Muzan.</p>
+            </div>
         </div>
-        
-        <div class="msg">
-            <p>Dá o play, Manu! Achei esse trailer e lembrei de você. ✨</p>
+
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/28N_q999o_s" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Como Treinar Seu Dragão (Live Action)</h3>
+                <p>O Banguela na vida real! Ficou muito igual ao desenho.</p>
+            </div>
         </div>
-    </div>
+
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/S_8Vp43O2OQ" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Stranger Things 5 (Trailer Final)</h3>
+                <p>A última temporada em Hawkins. Quem será que sobrevive?</p>
+            </div>
+        </div>
+
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/CyiiEJRZSUA" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Homem-Aranha: Além do Aranhaverso</h3>
+                <p>Animação perfeita que você sempre gosta de rever.</p>
+            </div>
+        </div>
+
+        </div>
+</div>
+
+<footer>
+    Feito com carinho para a Manu por seu melhor amigo ✨
+</footer>
 
 </body>
 </html>
