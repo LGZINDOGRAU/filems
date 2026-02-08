@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Manu 🍿</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #141414; color: white; margin: 0; padding: 20px; }
+        h1 { color: #E50914; text-align: center; }
+        .container { max-width: 1000px; margin: auto; }
+        .search-area { text-align: center; margin-bottom: 30px; }
+        input { padding: 10px; width: 60%; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; background: #E50914; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .movie-card { background: #2f2f2f; border-radius: 10px; overflow: hidden; transition: transform 0.3s; }
+        .movie-card:hover { transform: scale(1.05); }
+        .movie-card img { width: 100%; display: block; }
+        .movie-info { padding: 10px; text-align: center; }
+        .special-badge { background: gold; color: black; padding: 2px 5px; font-size: 12px; font-weight: bold; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cine Manu 🍿</h1>
+    <p style="text-align: center;">Emanuely, aqui estão suas próximas maratonas!</p>
+
+    <div class="search-area">
+        <input type="text" id="movieInput" placeholder="Busque um filme ou gênero...">
+        <button onclick="searchMovies()">Buscar</button>
+    </div>
+
+    <h2 id="section-title">Recomendações em Alta</h2>
+    <div class="movie-grid" id="movieGrid">
+        </div>
+</div>
+
+<script>
+    const API_KEY = 'SUA_CHAVE_API_AQUI'; // <--- COLOQUE SUA CHAVE AQUI
+    const BASE_URL = 'https://api.themoviedb.org/3';
+    const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
+    // Carregar filmes recomendados ao abrir
+    window.onload = () => {
+        fetchMovies(`${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=pt-BR`);
+    };
+
+    async function fetchMovies(url) {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayMovies(data.results);
+    }
+
+    function displayMovies(movies) {
+        const grid = document.getElementById('movieGrid');
+        grid.innerHTML = '';
+        movies.forEach(movie => {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+            card.innerHTML = `
+                <img src="${movie.poster_path ? IMG_URL + movie.poster_path : 'https://via.placeholder.com/500x750'}" alt="${movie.title || movie.name}">
+                <div class="movie-info">
+                    <p><strong>${movie.title || movie.name}</strong></p>
+                    <span class="special-badge">⭐ ${movie.vote_average.toFixed(1)}</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function searchMovies() {
+        const query = document.getElementById('movieInput').value;
+        if(query) {
+            fetchMovies(`${BASE_URL}/search/multi?api_key=${API_KEY}&language=pt-BR&query=${query}`);
+            document.getElementById('section-title').innerText = `Resultados para: ${query}`;
+        }
+    }
+</script>
+
+</body>
+</html>
