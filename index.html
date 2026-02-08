@@ -4,59 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Manu 🍿</title>
-    <style>
-        :root { --primary: #e50914; --bg: #0f0f0f; --card-bg: #181818; }
-        body { font-family: Arial, sans-serif; background-color: var(--bg); color: white; margin: 0; padding: 20px; }
-        header { text-align: center; padding: 20px; }
-        h1 { color: var(--primary); }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1100px; margin: auto; }
-        .video-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #333; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .info { padding: 15px; }
-        footer { text-align: center; margin-top: 40px; color: #555; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Cine Manu 🍿</h1>
-    <p>Emanuely, aqui estão os trailers que funcionam agora!</p>
-</header>
-
-<div class="video-grid">
-
-    <div class="video-card">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/KN921po7cEE" allowfullscreen></iframe>
+    <div id="intro-overlay">
+        <div class="clapperboard">
+            <div class="clapper-top"></div>
+            <div class="clapper-bottom"></div>
         </div>
-        <div class="info"><h3>Demon Slayer: Castelo Infinito</h3></div>
     </div>
 
-    <div class="video-card">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/5UfX7Iu19i8" allowfullscreen></iframe>
+    <header>
+        <h1>Cine Manu 🍿</h1>
+        <p>Ação! Suas recomendações favoritas.</p>
+    </header>
+
+    <div class="container">
+        <div class="video-grid">
+            
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KN921po7cEE" allowfullscreen></iframe>
+                </div>
+                <div class="info">
+                    <h3>Demon Slayer: Castelo Infinito</h3>
+                    <p>Manu, se prepare para o melhor filme de anime do ano!</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/5UfX7Iu19i8" allowfullscreen></iframe>
+                </div>
+                <div class="info">
+                    <h3>Como Treinar Seu Dragão</h3>
+                    <p>O live-action que vai ser idêntico ao desenho!</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/S_8Vp43O2OQ" allowfullscreen></iframe>
+                </div>
+                <div class="info">
+                    <h3>Stranger Things 5</h3>
+                    <p>O final épico da nossa série favorita.</p>
+                </div>
+            </div>
+
         </div>
-        <div class="info"><h3>Como Treinar Seu Dragão</h3></div>
     </div>
 
-    <div class="video-card">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/S_8Vp43O2OQ" allowfullscreen></iframe>
-        </div>
-        <div class="info"><h3>Stranger Things 5</h3></div>
-    </div>
+    <footer>
+        Feito com ✨ para Manu
+    </footer>
 
-    <div class="video-card">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/h9S9fJpB9zM" allowfullscreen></iframe>
-        </div>
-        <div class="info"><h3>Moana 2</h3></div>
-    </div>
-
-</div>
-
-<footer>Feito para a Manu ✨</footer>
+    <script>
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro-overlay');
+            // Tempo para a claquete bater e a tela sumir
+            setTimeout(() => {
+                intro.classList.add('fade-out');
+            }, 1500);
+        });
+    </script>
 
 </body>
 </html>
