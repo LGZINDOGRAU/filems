@@ -1,119 +1,120 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@400;700;900&family=Bebas+Neue&display=swap');
 
 :root {
-    --primary: #e50914; /* Vermelho Cinema */
-    --accent: #ff4d6d;
-    --bg: #050505;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --netflix-red: #e50914;
+    --dark-bg: #141414;
+    --card-bg: rgba(255, 255, 255, 0.08);
 }
 
 body {
-    background-color: var(--bg);
+    background-color: var(--dark-bg);
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Netflix Sans', sans-serif; /* Usando uma fonte parecida com a Netflix */
     margin: 0;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* --- INTRO PROFISSIONAL --- */
+/* --- TELA DE INTRO NETFLIX --- */
 #intro-overlay {
     position: fixed;
-    inset: 0;
-    background: #000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--dark-bg);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+    transition: opacity 0.8s ease-in-out;
 }
 
-.clapperboard {
-    width: 200px;
-    height: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.clapper-top {
-    width: 200px;
-    height: 40px;
-    background: repeating-linear-gradient(-45deg, #000, #000 20px, #fff 20px, #fff 40px);
-    border: 2px solid #fff;
-    transform-origin: bottom left;
-    animation: clap-cinema 0.8s ease-in-out infinite alternate;
-}
-
-.clapper-bottom {
-    width: 200px;
-    height: 120px;
-    background: #111;
-    border: 2px solid #fff;
+.netflix-intro {
+    position: relative;
+    width: 250px; /* Tamanho da animação */
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.5rem;
 }
 
-@keyframes clap-cinema {
-    from { transform: rotate(-35deg); }
-    to { transform: rotate(0deg); }
-}
-
-.fade-out {
-    transform: translateY(-100%);
+.netflix-name {
+    font-family: 'Bebas Neue', sans-serif; /* Fonte robusta para o nome */
+    font-size: 3.5rem;
+    color: var(--netflix-red);
+    letter-spacing: 5px;
     opacity: 0;
+    transform: translateY(20px);
+    animation: revealName 1s ease-out 1.5s forwards; /* Atraso para aparecer depois do 'N' */
+}
+
+/* Animação do "N" se transformando no nome */
+@keyframes revealName {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Esconder a intro */
+.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* --- HEADER --- */
 header {
-    height: 60vh;
+    height: 70vh; /* Aumenta um pouco o header */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--bg)), 
-                url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070') center/cover;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), var(--dark-bg)), 
+                url('https://source.unsplash.com/random/1600x900/?cinema,night') center/cover no-repeat; /* Imagem de fundo aleatória */
     text-align: center;
+    margin-bottom: 50px;
 }
 
 h1 {
     font-family: 'Bebas Neue', cursive;
-    font-size: 6rem;
+    font-size: 5rem; /* Ajuste para o Bebas Neue */
     margin: 0;
-    letter-spacing: 8px;
-    color: var(--primary);
-    text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+    letter-spacing: 6px;
+    color: var(--netflix-red);
+    text-shadow: 0 0 15px rgba(229, 9, 20, 0.6);
+}
+header p {
+    font-family: 'Netflix Sans', sans-serif;
+    font-weight: 300;
+    color: #ccc;
+    letter-spacing: 2px;
+    margin-top: 15px;
 }
 
-/* --- GRID DE FILMES --- */
+/* --- GRID DE FILMES (COM MAIS ESTILO) --- */
 .container {
     max-width: 1300px;
-    margin: -100px auto 50px;
-    padding: 0 20px;
+    margin: -100px auto 80px; /* Sobe a grade um pouco para cima do header */
+    padding: 0 25px;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 35px;
 }
 
 .video-card {
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 24px;
-    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px); /* Efeito de vidro mais forte */
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.15);
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1); /* Animação mais suave */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
 }
 
 .video-card:hover {
-    transform: scale(1.05) translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+    transform: translateY(-12px) scale(1.04);
+    border-color: var(--netflix-red);
+    box-shadow: 0 15px 45px rgba(229, 9, 20, 0.4);
 }
 
 .video-container {
@@ -123,33 +124,35 @@ h1 {
 
 .video-container iframe {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     border: none;
 }
 
 .info {
     padding: 25px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); /* Fundo sutil */
 }
 
 .info h3 {
     font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 0 0 10px;
     color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
 }
 
 .info p {
-    color: #aaa;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    color: #bbb;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
+/* --- FOOTER --- */
 footer {
-    padding: 50px;
+    padding: 60px 20px;
     text-align: center;
-    opacity: 0.5;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    color: #666;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
