@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Manu 🍿</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Cine Manu | Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,31 +11,36 @@
     <div id="intro-overlay">
         <div class="clapperboard">
             <div class="clapper-top"></div>
-            <div class="clapper-bottom"></div>
+            <div class="clapper-bottom">CINE MANU</div>
         </div>
+        <p style="margin-top: 20px; letter-spacing: 5px; color: #555;">PREPARANDO O SHOW...</p>
     </div>
 
     <header>
-        <h1>Cine Manu 🍿</h1>
-        <p>Ação! Suas recomendações favoritas.</p>
+        <h1>CINE MANU</h1>
+        <p style="letter-spacing: 3px;">CURADORIA EXCLUSIVA PARA EMANUELY</p>
     </header>
 
     <div class="container">
         <div class="video-grid">
-            
+
             <div class="video-card">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/KN921po7cEE" allowfullscreen></iframe>
                 </div>
                 <div class="info">
                     <h3>Demon Slayer: Castelo Infinito</h3>
-                    <p>Manu, se prepare para o melhor filme de anime do ano!</p>
+                    <p>A conclusão épica da jornada de Tanjiro. Visualmente impecável, assim como sua amizade!</p>
                 </div>
             </div>
 
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/HIbwgbbJzSs?si=bzIcL0B3E4iQVepp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>>
+            <div class="video-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/5UfX7Iu19i8" allowfullscreen></iframe>
+                </div>
+                <div class="info">
                     <h3>Como Treinar Seu Dragão</h3>
-                    <p>O live-action que vai ser idêntico ao desenho!</p>
+                    <p>Uma nova forma de ver um clássico. Perfeito para uma maratona com pipoca.</p>
                 </div>
             </div>
 
@@ -46,7 +50,7 @@
                 </div>
                 <div class="info">
                     <h3>Stranger Things 5</h3>
-                    <p>O final épico da nossa série favorita.</p>
+                    <p>O fim de uma era em Hawkins. Prepare os lenços, Manu!</p>
                 </div>
             </div>
 
@@ -54,18 +58,19 @@
     </div>
 
     <footer>
-        Feito com ✨ para Manu
+        DESENVOLVIDO COM TECNOLOGIA DE PONTA PARA EMANUELY © 2026
     </footer>
 
     <script>
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro-overlay');
-            // Tempo para a claquete bater e a tela sumir
+            // Dá tempo da animação da claquete ser vista
             setTimeout(() => {
                 intro.classList.add('fade-out');
-            }, 1500);
+                // Remove do HTML para não atrapalhar o scroll
+                setTimeout(() => intro.style.display = 'none', 800);
+            }, 2500);
         });
     </script>
-
 </body>
 </html>
