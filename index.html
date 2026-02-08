@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Manu 🍿</title>
+    <title>Cine Manu | Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,28 +12,28 @@
         <div class="clapperboard">
             <div class="clapper-top"></div>
             <div class="clapper-bottom">
-                <span>SCENE 1</span>
-                <span>TAKE 1</span>
+                <span>SCENE: MANU</span>
+                <span>TAKE: 01</span>
             </div>
         </div>
-        <h2 class="nome-intro">EMANUELY</h2>
+        <h2 class="nome-manu-intro">EMANUELY</h2>
     </div>
 
     <header>
-        <h1>CINE MANU</h1>
-        <p>Prepara a pipoca! O show vai começar.</p>
+        <h1>CINE<br>MANU</h1>
+        <p style="color: #666; letter-spacing: 4px; margin-top: 10px;">PREPARA A PIPOCA!</p>
     </header>
 
     <div class="container">
         <div class="video-grid">
-            
+
             <div class="video-card">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/KN921po7cEE" allowfullscreen></iframe>
                 </div>
                 <div class="info">
-                    <h3>Demon Slayer: Castelo Infinito</h3>
-                    <p>O arco final INSANO! Você vai amar.</p>
+                    <h3>Demon Slayer</h3>
+                    <p>O arco do Castelo Infinito está chegando. Manu, prepare o coração!</p>
                 </div>
             </div>
 
@@ -42,8 +42,8 @@
                     <iframe src="https://www.youtube.com/embed/5UfX7Iu19i8" allowfullscreen></iframe>
                 </div>
                 <div class="info">
-                    <h3>Como Treinar Seu Dragão</h3>
-                    <p>O live-action que a gente tanto queria!</p>
+                    <h3>Banguela Está de Volta</h3>
+                    <p>O live action de Como Treinar seu Dragão. Vai ser incrível!</p>
                 </div>
             </div>
 
@@ -53,7 +53,7 @@
                 </div>
                 <div class="info">
                     <h3>Stranger Things 5</h3>
-                    <p>Finalmente o fim de Hawkins está chegando.</p>
+                    <p>Finalmente o capítulo final. Quem será que sobrevive dessa vez?</p>
                 </div>
             </div>
 
@@ -61,19 +61,20 @@
     </div>
 
     <footer>
-        Feito com ❤️ para a Manu
+        CINE MANU &copy; 2026 - FEITO COM AMOR
     </footer>
 
     <script>
-        window.addEventListener('load', () => {
+        // Script para remover a intro sem dar bug
+        window.onload = function() {
             const intro = document.getElementById('intro-overlay');
-            // Espera 2.5 segundos para a animação da claquete e o nome aparecerem
             setTimeout(() => {
                 intro.classList.add('fade-out');
-                setTimeout(() => intro.style.display = 'none', 800);
-            }, 2500);
-        });
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                }, 800);
+            }, 3000); // Fica 3 segundos na tela
+        };
     </script>
-
 </body>
 </html>
