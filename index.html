@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine Manu | Seu Cinema Pessoal</title>
+    <title>Cine Manu 🍿</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="intro-overlay">
-        <div class="netflix-intro">
-            <span class="netflix-name">EMANUELY</span>
+        <div class="clapperboard">
+            <div class="clapper-top"></div>
+            <div class="clapper-bottom">
+                <span>SCENE 1</span>
+                <span>TAKE 1</span>
+            </div>
         </div>
+        <h2 class="nome-intro">EMANUELY</h2>
     </div>
 
     <header>
         <h1>CINE MANU</h1>
-        <p>SUAS PRÓXIMAS MARATONAS ESTÃO AQUI!</p>
+        <p>Prepara a pipoca! O show vai começar.</p>
     </header>
 
     <div class="container">
         <div class="video-grid">
-
+            
             <div class="video-card">
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/KN921po7cEE" allowfullscreen></iframe>
                 </div>
                 <div class="info">
                     <h3>Demon Slayer: Castelo Infinito</h3>
-                    <p>A conclusão épica da jornada de Tanjiro. Visualmente impecável, assim como sua amizade!</p>
+                    <p>O arco final INSANO! Você vai amar.</p>
                 </div>
             </div>
 
@@ -38,7 +43,7 @@
                 </div>
                 <div class="info">
                     <h3>Como Treinar Seu Dragão</h3>
-                    <p>Uma nova forma de ver um clássico. Perfeito para uma maratona com pipoca.</p>
+                    <p>O live-action que a gente tanto queria!</p>
                 </div>
             </div>
 
@@ -48,27 +53,27 @@
                 </div>
                 <div class="info">
                     <h3>Stranger Things 5</h3>
-                    <p>O fim de uma era em Hawkins. Prepare os lenços, Manu!</p>
+                    <p>Finalmente o fim de Hawkins está chegando.</p>
                 </div>
             </div>
-            
-            </div>
+
+        </div>
     </div>
 
     <footer>
-        <p>CINE MANU - O SEU CINEMA PARTICULAR. DESENVOLVIDO COM <span style="color: var(--netflix-red);">❤</span> POR VOCÊ!</p>
+        Feito com ❤️ para a Manu
     </footer>
 
     <script>
         window.addEventListener('load', () => {
             const intro = document.getElementById('intro-overlay');
-            // Tempo para o nome aparecer e a tela sumir
+            // Espera 2.5 segundos para a animação da claquete e o nome aparecerem
             setTimeout(() => {
                 intro.classList.add('fade-out');
-                // Remove o overlay do DOM para não interferir no scroll
-                setTimeout(() => intro.style.display = 'none', 800); 
-            }, 3000); // Ajustei para 3 segundos para o nome ter tempo de aparecer
+                setTimeout(() => intro.style.display = 'none', 800);
+            }, 2500);
         });
     </script>
+
 </body>
 </html>
